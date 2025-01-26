@@ -3,7 +3,6 @@ package com.example.mymainapp.components
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,7 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -38,7 +37,7 @@ fun TopicsDetails(title: String, contents: Array<String>) {
     ) {
         Row(
             modifier = Modifier
-                .border(width = 1.dp, Color.Black, shape = RoundedCornerShape(15.dp))
+                .clip(RoundedCornerShape(15.dp))
                 .fillMaxWidth()
                 .clickable { isExpanded = !isExpanded }
                 .padding(8.dp),
@@ -56,7 +55,7 @@ fun TopicsDetails(title: String, contents: Array<String>) {
         }
 
         contents.forEach{content ->
-            Row(){
+            Row{
                 AnimatedVisibility(visible = isExpanded,
                     enter = expandVertically(),
                     exit = shrinkVertically() ) {
