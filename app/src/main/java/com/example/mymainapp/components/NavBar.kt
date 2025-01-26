@@ -10,10 +10,12 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.mymainapp.data.NavRoutes
+import com.example.mymainapp.ui.theme.MyMainAppTheme
 
 @Composable
 fun NavBar(navController: NavController){
-    NavigationBar{
+    MyMainAppTheme {
+        NavigationBar{
         val backStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry?.destination?.route
 
@@ -35,5 +37,6 @@ fun NavBar(navController: NavController){
                 }
             )
         }
+    }
     }
 }

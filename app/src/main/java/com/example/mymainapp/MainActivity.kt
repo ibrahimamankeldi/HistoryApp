@@ -70,4 +70,4 @@ fun StreakViewModel(viewModel: StreakViewModel) {
 
 //git status
 //git push origin master
-//git commmit -m "message"
+//git commit -m "message"
